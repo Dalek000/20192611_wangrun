@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/edit.css}" type="text/css"/>
+
+    <script th:src="@{/js/vue.js}"></script>
+    <!-- 挂载axios -->
+    <script th:src="@{/js/axios.min.js}"></script>
+    <script th:src="@{/js/addORedit.js}"></script>
+</head>
+<body>
+<div class="search-box">
+    <form th:action="@{/get/add}" method="get" onsubmit="return preCheck();">
+        <div class="onebox firstbox">
+            <span>节目名（必填）</span>
+            <input type="text" class="name" name="name" placeholder="必填" onblur="ckUname(this.value)"/>
+        </div>
+        <div class="onebox">
+            <span>类别（必选）</span>
+            <select name="type" id="">
+                <option selected disabled >选择节目类型</option>
+                <option selected value="1">歌舞</option>
+                <option value="2">语言</option>
+                <option value="3">杂技</option>
+                <option value="4">少儿</option>
+            </select>
+        </div>
+        <div class="midbox onebox">
+            <span><p>人员名单</p><p>(非必选)</p></span>
+            <div>
+                <input type="text" class="name" id="actors" name="actorList" placeholder="输入不同出演单位间请用空格隔开">
+            </div>
+        </div>
+        <div class="onebox lastbox">
+            <span><p>&emsp;&nbsp;看点</p><p>（非必选）</p></span>
+            <div>
+                <input type="text" class="name" name="view" >
+            </div>
+        </div>
+        <div class="onebox" id="rightbox">
+            <input type="submit" class="btn" id="add" value="添加" />
+        </div>
+    </form>
+</div>
+</body>
+</html>
